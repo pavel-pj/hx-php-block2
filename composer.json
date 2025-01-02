@@ -1,0 +1,23 @@
+{
+    "name": "testeru/news2",
+    "description": "about testing",
+    "type": "project",
+    "license": "mit",
+    "autoload": {
+        "psr-4": {
+            "Testeru\\News2\\": "src/"
+        }
+
+    },
+    "authors": [
+        {
+            "name": "Pavel V",
+            "email": "admin@dca.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "funct/funct": "^1.6",
+        "illuminate/collections": "^10.48"
+    }
+}
