@@ -13,6 +13,7 @@ use Testeru\News2\Functions\Lesson11;
 use Testeru\News2\Functions\Lesson12;
 use Testeru\News2\Functions\Lesson13;
 use Testeru\News2\Functions\Lesson13a;
+use Testeru\News2\Functions\Lesson14;
 use Testeru\News2\Basic\TestAddDigits;
 
 use Testeru\News2\CollectionsTest\CollectionsPlay;
@@ -113,7 +114,7 @@ $ls = new Lesson12();
 print_r($ls-> getMenCountByYear($users));
 
 
-*/
+
 $emails = [
     'info@gmail.com',
     'info@yandex.ru',
@@ -157,7 +158,10 @@ print_r ($ls->getManWithLeastFriends($users));
 
 //$d='vovan@hotmail.com';
  //print_r($d);
+*/
 
+$ls = new Lesson14();
+print_r ($ls->without(['wow', false, 4, 0, 4, 'true'], false, 4));
 
 
 
