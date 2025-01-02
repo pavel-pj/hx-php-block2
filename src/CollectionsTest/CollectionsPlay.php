@@ -6,10 +6,10 @@ use Illuminate\Support\Collection;
 
 class CollectionsPlay
 {
-    
-    protected  Collection $data ;
+    protected Collection $data ;
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->data = collect([
             ['name' => 'Bronn', 'gender' => 'male', 'birthday' => '1973-03-23'],
             ['name' => 'Reigar', 'gender' => 'male', 'birthday' => '1973-11-03'],
@@ -21,53 +21,33 @@ class CollectionsPlay
             ['name' => 'Rick', 'gender' => 'male', 'birthday' => '2012-11-03'],
             ['name' => 'Joffrey', 'gender' => 'male', 'birthday' => '1999-11-03'],
             ['name' => 'Edd', 'gender' => 'male', 'birthday' => '1973-11-03']
-            ]
-        );
-    }
-    
-
-    public function mainProgramm(){
-
-        print_r ( $this->getMap($this->data));
-       // print_r($this->getFiltered($this->data));
-
+            ]);
     }
 
-    public function getMap(Collection $col): Collection {
-
-         $col2= $col->map(function(array $item ){
-             $age = time();//date('Y',     strtotime($item['birthday']) ());
-             return  ['age'=>$age,$item['birthday'],'diff'=>date(
-                 'Y',time()-strtotime($item['birthday']))];
-
-         });
-
-         return $col2;//->flatten(2);
-
-
-    }
-
-    public function getFiltered (Collection $col): Collection {
-
-        $col2= $col->filter(function($item){
-            $age = date('Y',  time() -  strtotime($item['birthday']));
-            return ($item['gender'] == 'male' && $age >25 ) ;
-        });
-        return $col2;
-
-
-    }
-
-    public function lesson13()//:Collection
+    public function mainProgramm()
     {
+        print_r($this->getMap($this->data));
+    }
+    public function getMap(Collection $col): Collection
+    {
+         $col2 = $col->map(function (array $item) {
+             $age = time();
+             return  ['age' => $age, $item['birthday'], 'diff' => date(
+                 'Y',
+                 time() - strtotime($item['birthday'])
+             )];
+         });
+         return $col2;
+    }
 
-
+    public function lesson13()
+    {
 
         $domains = collect([
           'gmail.com', 'yandex.ru', 'hotmail.com'
         ]);
 
-        $emails= collect( [
+        $emails = collect([
             'info@gmail.com',
             'info@yandex.ru',
             'info@hotmail.com',
@@ -79,33 +59,19 @@ class CollectionsPlay
             'vovan@hotmail.com'
         ]);
 
-       /// if( $domains->contains(fn(string $value,int $key) => $value =='gmail.com'))
-        //    echo "YES\n";
-
-
-
-
-
-
-        $result = $emails->map( fn($email) => explode('@',$email)[1])
-                         ->filter(function ($item) use ($domains){
+        $result = $emails->map(fn($email) => explode('@', $email)[1])
+                         ->filter(function ($item) use ($domains) {
                              return $domains->contains($item);
-                         })->reduce(function($carry,$item){
+                         })->reduce(function ($carry, $item) {
 
-                             if( $carry->has($item)) {
-                                 $carry[$item] +=1;
-                             } else {
-                                 $carry->put($item,1);
-                             }
+                            if ($carry->has($item)) {
+                                 $carry[$item] += 1;
+                            } else {
+                                 $carry->put($item, 1);
+                            }
 
-                         return $carry;
-
-                         } , collect());
-      print_r( $result);
-
-
-
+                            return $carry;
+                         }, collect());
+        print_r($result);
     }
-
-
 }

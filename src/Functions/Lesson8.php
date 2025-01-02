@@ -4,12 +4,8 @@ namespace Testeru\News2\Functions;
 
 use Funct\Strings;
 
-class Lesson8 {
-
-    public function s2(){
-        echo "fasefaesfFWEFEWF";
-    }
-
+class Lesson8
+{
     public function testStr(string $text): ?string
     {
         $last = function ($str) {
@@ -20,10 +16,5 @@ class Lesson8 {
             }
         };
         return $last($text);
-         
-
-
     }
-
-
 }

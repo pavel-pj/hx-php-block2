@@ -12,6 +12,7 @@ use Testeru\News2\Functions\Lesson10;
 use Testeru\News2\Functions\Lesson11;
 use Testeru\News2\Functions\Lesson12;
 use Testeru\News2\Functions\Lesson13;
+use Testeru\News2\Functions\Lesson13a;
 use Testeru\News2\Basic\TestAddDigits;
 
 use Testeru\News2\CollectionsTest\CollectionsPlay;
@@ -21,6 +22,8 @@ use Funct\Strings;
 
 
 
+
+/*
 $col = new CollectionsPlay();
 $col->lesson13();
 
@@ -110,7 +113,7 @@ $ls = new Lesson12();
 print_r($ls-> getMenCountByYear($users));
 
 
-
+*/
 $emails = [
     'info@gmail.com',
     'info@yandex.ru',
@@ -130,12 +133,31 @@ $d =[
 ];
 
 
+$users = [
+    ['name' => 'Tirion', 'friends' => [
+        ['name' => 'Mira', 'gender' => 'female']
+    ]],
+    ['name' => 'Sam', 'friends' => [
+        ['name' => 'Aria', 'gender' => 'female'],
+        ['name' => 'Keit', 'gender' => 'female'],
+        ['name' => 'Tanisha', 'gender' => 'female']
+    ]],
+    ['name' => 'Bronn', 'friends' => [
+        ['name' => 'Taywin', 'gender' => 'male']
+    ]],
+    ['name' => 'Rob', 'friends' => [
+        ['name' => 'Taywin', 'gender' => 'male'],
+        ['name' => 'Keit', 'gender' => 'female'],
+        ['name' => 'Ramsey', 'gender' => 'male']
+    ]],
+];
 
-$ls = new Lesson13();
- print_r($ls->getFreeDomainsCount($emails ));
+$ls = new Lesson13a();
+print_r ($ls->getManWithLeastFriends($users));
+
 //$d='vovan@hotmail.com';
  //print_r($d);
-*/
+
 
 
 

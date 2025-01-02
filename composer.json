@@ -18,6 +18,7 @@
     "minimum-stability": "stable",
     "require": {
         "funct/funct": "^1.6",
-        "illuminate/collections": "^10.48"
+        "illuminate/collections": "^10.48",
+        "squizlabs/php_codesniffer": "*"
     }
 }
