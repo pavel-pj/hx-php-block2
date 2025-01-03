@@ -17,7 +17,5 @@ if (capitalize('hello') !== 'Hello') {
 if (capitalize('') !== '') {
     throw new \Exception("Функция работает неверно!\n");
 }
-
-У
-
+ 
 echo "*** Все тесты пройдены! *** \n";
