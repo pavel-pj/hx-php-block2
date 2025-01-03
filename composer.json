@@ -6,9 +6,12 @@
     "autoload": {
         "psr-4": {
             "Testeru\\News2\\": "src/"
-        }
-
+        },
+        "files": [
+            "src/Assertions/StringUtils.php"
+            ]
     },
+
     "authors": [
         {
             "name": "Pavel V",
@@ -19,6 +22,7 @@
     "require": {
         "funct/funct": "^1.6",
         "illuminate/collections": "^10.48",
-        "squizlabs/php_codesniffer": "*"
+        "squizlabs/php_codesniffer": "*",
+        "lstrojny/functional-php": "^1.17"
     }
 }
