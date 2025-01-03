@@ -6,3 +6,4 @@ git-graph:
 	git log --pretty=format:"%h %s" --graph
 lint:
 	composer exec --verbose phpcs -- --standard=PSR12 src
+ 

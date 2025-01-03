@@ -9,13 +9,9 @@ if (file_exists($autoloadPath1)) {
 }
 
 use function Testeru\News2\Assertions\capitalize;
+use Webmozart\Assert\Assert;
 
-if (capitalize('hello') !== 'Hello') {
-    throw new \Exception("Функция работает неверно!\n");
-}
+Assert::eq(capitalize('hello'),'Hello');
+Assert::eq(capitalize('') , '');
 
-if (capitalize('') !== '') {
-    throw new \Exception("Функция работает неверно!\n");
-}
- 
 echo "*** Все тесты пройдены! *** \n";

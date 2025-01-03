@@ -23,6 +23,7 @@
         "funct/funct": "^1.6",
         "illuminate/collections": "^10.48",
         "squizlabs/php_codesniffer": "*",
-        "lstrojny/functional-php": "^1.17"
+        "lstrojny/functional-php": "^1.17",
+        "webmozart/assert": "^1.11"
     }
 }
