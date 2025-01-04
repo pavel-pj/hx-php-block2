@@ -25,11 +25,16 @@ function mkdir(string $name, array $children = [], array $meta = [])
 
 function isFile($node)
 {
-    echo $node;
+
     return $node['type'] == 'file';
 }
 
 function getChildren($node)
 {
     return $node['children'];
+}
+
+function getName($node)
+{
+    return $node['name'];
 }

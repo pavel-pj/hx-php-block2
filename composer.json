@@ -10,7 +10,8 @@
         "files": [
             "src/Tree/TreeLib.php",
             "src/Tree/Tree2.php",
-            "src/Tree/Tree3.php"
+            "src/Tree/Tree3.php",
+            "src/Tree/Tree4.php"
             ]
     },
 

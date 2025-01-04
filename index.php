@@ -6,19 +6,23 @@ require_once $autoloadPath;
 
 use function Testeru\News2\Tree\mkdir;
 use function Testeru\News2\Tree\mkfile;
-use function Testeru\News2\Tree\compressImages;
+use function Testeru\News2\Tree\getName;
+use function Testeru\News2\Tree\isFile;
+use function Testeru\News2\Tree\getChildren;
+use function Testeru\News2\Tree\downcaseFileNames;
 
-$tree = mkdir('my documents', [
-    mkdir('documents.jpg'),
-    mkfile('avatar.jpg', ['size' => 100]),
-    mkfile('passport.jpg', ['size' => 200]),
-    mkfile('family.jpg', ['size' => 150]),
-    mkfile('addresses', ['size' => 125]),
-    mkdir('presentations')
-], [ 'test' => 'haha']);
+$tree = mkdir('Iof/', [
+    mkdir('eTc', [
+        mkdir('NgiNx'),
+        mkdir('CONSUL', [
+            mkfile('config.json'),
+        ]),
+    ]),
+    mkfile('hOsts'),
+]);
 
-//print_r($tree);
- print_r(compressImages($tree));
+
+print_r(downcaseFileNames($tree));
 //print_r($tree);
 
 
