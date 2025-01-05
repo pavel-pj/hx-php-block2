@@ -7,6 +7,6 @@ git-graph:
 lint:
 	composer exec --verbose phpcs -- --standard=PSR12 src
 index:
-	/opt/php84/bin/php index.php
+	/opt/php83/bin/php index.php
 
  

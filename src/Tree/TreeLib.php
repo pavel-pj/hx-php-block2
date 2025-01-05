@@ -43,3 +43,37 @@ function getMeta($node)
 {
     return $node['meta'];
 }
+function isDirectory($node)
+{
+    return $node['type'] == 'directory';
+}
+
+function reduce($func, $tree, $accumulator)
+{
+    $children = $tree['children'] ?? [];
+    $newAcc = $func($accumulator, $tree);
+
+    if (isFile($tree)) {
+        return $newAcc;
+    }
+
+    return array_reduce(
+        $children,
+        fn($acc, $node) => reduce($func, $node, $acc),
+        $newAcc
+    );
+}
+
+function array_flatten($tree, $depth = 0)
+{
+    $result = [];
+    foreach ($tree as $key => $value) {
+        if ($depth >= 0 && is_array($value)) {
+            $value = array_flatten($value, $depth > 1 ? $depth - 1 : 0 - $depth);
+            $result = array_merge($result, $value);
+        } else {
+            $result[] = $value;
+        }
+    }
+    return $result;
+}

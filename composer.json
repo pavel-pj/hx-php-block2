@@ -13,7 +13,8 @@
             "src/Tree/Tree3.php",
             "src/Tree/Tree4.php",
             "src/Tree/Tree5.php",
-            "src/Tree/Tree6.php"
+            "src/Tree/Tree6.php",
+            "src/Tree/Tree7.php"
         ]
     },
 
@@ -29,6 +30,8 @@
         "illuminate/collections": "^10.48",
         "squizlabs/php_codesniffer": "*",
         
-        "webmozart/assert": "^1.11"
+        "webmozart/assert": "^1.11",
+     
+        "lstrojny/functional-php": "^1.17"
     }
 }

@@ -8,6 +8,8 @@ use function Testeru\News2\Tree\isFile;
 use function Testeru\News2\Tree\getChildren;
 use function Testeru\News2\Tree\getName;
 use function Testeru\News2\Tree\getMeta;
+use function Testeru\News2\Tree\isDirectory;
+use function Testeru\News2\Tree\reduce;
 
 function du(array $tree)
 {
@@ -26,10 +28,19 @@ function du(array $tree)
 
 function getFilesSize($node){
 
-    if (isFile($node)) {
-        return getMeta($node)['size'];
-    }
-    $children = getChildren($node);
-    return array_sum(array_map(fn ($item) =>getFilesSize($item) ,$children));
+    return reduce(function ($acc,$node){
+
+        if (isDirectory($node)){
+            return $acc;
+        }
+
+        return $acc + getMeta($node)['size'];
+
+
+    }, $node,0);
+
+
 
 }
+ 
+
