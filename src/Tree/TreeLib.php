@@ -38,3 +38,8 @@ function getName($node)
 {
     return $node['name'];
 }
+
+function getMeta($node)
+{
+    return $node['meta'];
+}
