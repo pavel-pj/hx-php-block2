@@ -10,7 +10,7 @@ use function Testeru\News2\Tree\isFile;
 use function Testeru\News2\Tree\getChildren;
 use function Testeru\News2\Tree\changeClass;
 use function Testeru\News2\Tree\convert;
-
+use function Testeru\News2\Tree\flatten;
 
 $tree = [
     'name' => 'html',
@@ -115,6 +115,7 @@ $tree4 = [
 $tree5 = [['key1', 'value1'], ['key2', 'value2']];
 $tree6 = [['key', 'value']];
 
-
-print_r(convert($tree4));
+$list = [[1, [5], [], [[-3, 'hi']]], 'string', 10, [[[5]]]];
+print_r(flatten($list));
+ 
 
