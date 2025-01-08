@@ -16,5 +16,5 @@ function sub_flatten(array $arr,&$acc)
    array_walk_recursive($arr, function (&$item) use (&$acc) {
          $acc[] =  $item;
     } );
- 
+
  }
