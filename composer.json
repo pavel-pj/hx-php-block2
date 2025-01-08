@@ -14,7 +14,11 @@
             "src/Tree/Tree4.php",
             "src/Tree/Tree5.php",
             "src/Tree/Tree6.php",
-            "src/Tree/Tree7.php"
+            "src/Tree/Tree7.php",
+            "src/Tree/Tree8.php",
+            "src/Tree/Tree9.php",
+            "src/Tree/Tree10.php",
+            "src/Tree/TreeConvert.php"
         ]
     },
 
