@@ -13,7 +13,7 @@ use function Testeru\News2\Tree\convert;
 use function Testeru\News2\Tree\itinerary;
 use Testeru\News2\Oop\Point;
 use Testeru\News2\Oop\Collection;
-use function Testeru\News2\Oop\jdecode;
+use function Testeru\News2\Oop\json_decode;
 use Testeru\News2\CollectionsTest\CollectionsPlay;
 
 
@@ -147,10 +147,13 @@ $tree = ['Moscow', [
 /*
 //print_r(itinerary($tree, 'Dubna', 'Kostroma'));
 */
-
+/*
 $coll =new CollectionsPlay();
 $coll->mainProgramm();
+*/
 
+$data = \Testeru\News2\Oop\json_decode('{ key": "value" }', true);
+print_r($data);
 
 
 
