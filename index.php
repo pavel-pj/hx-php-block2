@@ -12,7 +12,7 @@ use function Testeru\News2\Tree\changeClass;
 use function Testeru\News2\Tree\convert;
 use function Testeru\News2\Tree\itinerary;
 use Testeru\News2\Oop\Point;
-
+use Testeru\News2\Oop\Collection;
 $tree = [
     'name' => 'html',
     'type' => 'tag-internal',
@@ -145,43 +145,12 @@ $tree = ['Moscow', [
 */
 
 
+ 
+$coll = new Collection([3, 2, 5]);
 
-function getMidpoint($point1, $point2): Point{
-
-    $point = new Point();
-
-    $middleX = getMiddle ($point1->x, $point2->x);
-    $middleY = getMiddle ($point1->y, $point2->y);
-
-    $point->x = $middleX;
-    $point->y = $middleY;
-
-    return $point;
-
-}
-
-function getMiddle(int $a1, int $a2)
-{
-    return ($a1 >= $a2) ? ( $a2 + $a1)/2 : ( $a1 + $a2 )/2;
-
-
-}
+print_r(count($coll));
+print_r("\n");
 
 
 
-//$point = new Point(10,20);
-
-$point1 = new Point();
-$point1->x = 1;
-$point1->y = 10;
-$point2 = new Point();
-$point2->x = 10;
-$point2->y = 1;
-
-print_r($point1);
-
-
-$midpoint = getMidpoint($point1, $point2);
-echo $midpoint->x; // 5.5
-echo $midpoint->y; // 5.5
 
