@@ -3,6 +3,7 @@
 namespace Testeru\News2\CollectionsTest;
 
 use Illuminate\Support\Collection;
+use Exception;
 
 class CollectionsPlay
 {
@@ -26,7 +27,12 @@ class CollectionsPlay
 
     public function mainProgramm()
     {
-         print_r($this->checkFirstOrFail($this->data));
+        try {
+            print_r($this->checkFirstOrFail($this->data));
+        }catch (Exception $error)
+        {
+            print_r([$error->getMessage(),'Несуществующая запись']);
+        }
 
 
 
@@ -84,7 +90,7 @@ class CollectionsPlay
         return $col->map(function ($item) {
             return $item['name'];
         })->firstOrFail(function ($value,$key){
-              return $value == 'Sansa';
+              return $value == 'Sansayy';
         });
 
 
