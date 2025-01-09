@@ -26,7 +26,10 @@ class CollectionsPlay
 
     public function mainProgramm()
     {
-        print_r($this->getMap($this->data));
+         print_r($this->checkFirstOrFail($this->data));
+
+
+
     }
     public function getMap(Collection $col): Collection
     {
@@ -73,5 +76,17 @@ class CollectionsPlay
                             return $carry;
                          }, collect());
         print_r($result);
+    }
+
+    public function checkFirstOrFail(Collection $col)//: Collection
+    {
+
+        return $col->map(function ($item) {
+            return $item['name'];
+        })->firstOrFail(function ($value,$key){
+              return $value == 'Sansa';
+        });
+
+
     }
 }

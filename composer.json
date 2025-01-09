@@ -20,7 +20,9 @@
             "src/Tree/Tree10.php",
             "src/Tree/TreeConvert.php",
             "src/Tree/Flatten.php",
-            "src/Tree/Solution.php"
+            "src/Tree/Solution.php",
+            "src/Oop/Safe.php"
+        ]
         ]
     },
 

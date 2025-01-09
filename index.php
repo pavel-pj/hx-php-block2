@@ -13,6 +13,10 @@ use function Testeru\News2\Tree\convert;
 use function Testeru\News2\Tree\itinerary;
 use Testeru\News2\Oop\Point;
 use Testeru\News2\Oop\Collection;
+use function Testeru\News2\Oop\jdecode;
+use Testeru\News2\CollectionsTest\CollectionsPlay;
+
+
 $tree = [
     'name' => 'html',
     'type' => 'tag-internal',
@@ -144,12 +148,8 @@ $tree = ['Moscow', [
 //print_r(itinerary($tree, 'Dubna', 'Kostroma'));
 */
 
-
- 
-$coll = new Collection([3, 2, 5]);
-
-print_r(count($coll));
-print_r("\n");
+$coll =new CollectionsPlay();
+$coll->mainProgramm();
 
 
 
