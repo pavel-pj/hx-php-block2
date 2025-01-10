@@ -14,6 +14,7 @@ use function Testeru\News2\Tree\itinerary;
 use Testeru\News2\Oop\Point;
 use Testeru\News2\Oop\Collection;
 use function Testeru\News2\Oop\json_decode;
+use Testeru\News2\Oop\Url;
 use Testeru\News2\CollectionsTest\CollectionsPlay;
 
 
@@ -152,8 +153,16 @@ $coll =new CollectionsPlay();
 $coll->mainProgramm();
 */
 
-$data = \Testeru\News2\Oop\json_decode('{ key": "value" }', true);
-print_r($data);
+//$data = \Testeru\News2\Oop\json_decode('{ key": "value" }', true);
+$url  = new Url ('https://yandex.ru?MyParam=23&id_page=145');
+print_r($url->getScheme());
+echo "\n";
+print_r($url->getHost());
+echo "\n";
+print_r($url->getQueryParams());
+echo "\n";
+print_r($url->getQueryParam('id_pagre', 'lala'));
+echo "\n";
 
 
 
