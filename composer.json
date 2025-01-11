@@ -21,7 +21,9 @@
             "src/Tree/TreeConvert.php",
             "src/Tree/Flatten.php",
             "src/Tree/Solution.php",
-            "src/Oop/Safe.php"
+            "src/Oop/Safe.php",
+            "src/Oop/Converter.php",
+            "src/Oop/Stack.php"
         ]
         
     },
@@ -40,6 +42,7 @@
         
         "webmozart/assert": "^1.11",
      
-        "lstrojny/functional-php": "^1.17"
+        "lstrojny/functional-php": "^1.17",
+        "php-ds/php-ds": "^1.5"
     }
 }
