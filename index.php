@@ -15,7 +15,11 @@ use Testeru\News2\Oop\Point;
 use Testeru\News2\Oop\Collection;
 use function Testeru\News2\Oop\json_decode;
 use Testeru\News2\Oop\Url;
+use Testeru\News2\Oop\Node;
 use Testeru\News2\CollectionsTest\CollectionsPlay;
+use Testeru\News2\Oop\Validator;
+use Testeru\News2\Oop\Truncater;
+
 
 
 $tree = [
@@ -153,16 +157,19 @@ $coll =new CollectionsPlay();
 $coll->mainProgramm();
 */
 
-//$data = \Testeru\News2\Oop\json_decode('{ key": "value" }', true);
-$url  = new Url ('https://yandex.ru?MyParam=23&id_page=145');
-print_r($url->getScheme());
+$truncater = new Truncater();
+print_r($truncater->truncate('one two', ['length' => 6]));
 echo "\n";
-print_r($url->getHost());
+print_r($truncater->truncate('one two', ['separator' => '.']));
 echo "\n";
-print_r($url->getQueryParams());
+
+$truncater2 = new Truncater(['separator'=>'!']);
+print_r($truncater2->truncate('one two',['length'=>4]));
 echo "\n";
-print_r($url->getQueryParam('id_pagre', 'lala'));
-echo "\n";
+print_r($truncater2->truncate('one two'));
+
+
+
 
 
 
