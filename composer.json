@@ -23,7 +23,8 @@
             "src/Tree/Solution.php",
             "src/Oop/Safe.php",
             "src/Oop/Converter.php",
-            "src/Oop/Stack.php"
+            "src/Oop/Stack.php",
+            "src/Oop/Normalizer.php"
         ]
         
     },

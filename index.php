@@ -24,6 +24,7 @@ use Illuminate\Support\Collection;
 use function Testeru\News2\Oop\Stack\compare;
 use Testeru\News2\Oop\UrlAdress;
 use Testeru\News2\Oop\DeckOfCards;
+use function Testeru\News2\Oop\normalizer;
 
 
 $tree = [
@@ -153,37 +154,31 @@ $tree = ['Moscow', [
         ['Klin'], ['Dubna'], ['Rzhev'],
     ]],
 ]];
-/*
-//print_r(itinerary($tree, 'Dubna', 'Kostroma'));
-*/
- 
-$url =new UrlAdress("https://yandex.ru?myParam=23&address=Почтовая 24");
 
-/*
-print_r($url->getScheme());
-echo "\n";
+$raw = [
+    [
+        'name' => 'istambul',
+        'country' => 'turkey'
+    ],
+    [
+        'name' => 'Moscow ',
+        'country' => ' Russia'
+    ],
+    [
+        'name' => 'iStambul',
+        'country' => 'tUrkey'
+    ],
+    [
+        'name' => 'antalia',
+        'country' => 'turkeY '
+    ],
+    [
+        'name' => 'samarA',
+        'country' => '  ruSsiA'
+    ],
+];
 
-
-print_r($url->getHostName());
-echo "\n";
-print_r($url->getQueryParams());
-echo "\n";
-print_r($url->getQueryParam('myParame','def'));
-echo "\n";
-*/
-
-
-
-$http = 'https://google.com:80?a=b&c=d&lala=value';
-$url = new UrlAdress($http);
-
-//echo str_replace('80', '443', $http) . "\n";
-
-if ($url->equals(new UrlAdress(str_replace('80', '443', $http))))
-{
-    echo "TRUE";
-} else Echo "FALSE";
-//$url->equals(new Url('http://yandex.ru:80?key=value')); // false
+print_r(normalizer($raw));
 
 
 
