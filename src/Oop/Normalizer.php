@@ -5,31 +5,18 @@ use Illuminate\Support\Collection;
 
 function normalizer(array $arr )
 {
-
-
-
-    $col = collect($arr)->map(function ($item) {
+ 
+   return collect($arr)->map(function ($item) {
         return [
             'name'=>trim(strtolower($item['name'])),
             'country'=>trim(strtolower($item['country']))];
     })
         ->unique()
         ->sortBy('name')->values()
-        ->toArray() ;
+        ->reduce( function ($carry,$item) {
+             $carry[$item['country']][] = $item['name'];
+             return $carry;
+        },[]);
 
-
-    $result = array_reduce($col, function ($carry, $item) {
-
-
-        $carry[$item['country']][] = $item['name'];
-
-
-        return $carry;
-
-
-    },[]);
-
-
-    return $result;
 
 }
