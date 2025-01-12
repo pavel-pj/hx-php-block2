@@ -65,20 +65,7 @@ class UrlAdress
 
     public function equals(UrlAdress $url){
 
-        if (!  $this->isEqual( $url->getScheme(), $this->getScheme() ))    {
-             return false;
-        }
-        if (!  $this->isEqual( $url->getHostName(), $this->getHostName() ))    {
-             return false;
-        }
-        if (!  $this->isEqual( $url->params, $this->params ))    {
-              return false;
-        }
-        if (!  $this->isEqual( $url->getPort(), $this->getPort() ))    {
-            return false;
-        }
-
-        return true;
+        return $this == $url;
 
 
     }
@@ -96,8 +83,7 @@ class UrlAdress
         }
 
         return false;
-
-
+ 
     }
 
 }
