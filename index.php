@@ -22,7 +22,8 @@ use Testeru\News2\Oop\Truncater;
 use function Testeru\News2\Oop\Converter\toStd;
 use Illuminate\Support\Collection;
 use function Testeru\News2\Oop\Stack\compare;
-
+use Testeru\News2\Oop\UrlAdress;
+use Testeru\News2\Oop\DeckOfCards;
 
 
 $tree = [
@@ -155,26 +156,40 @@ $tree = ['Moscow', [
 /*
 //print_r(itinerary($tree, 'Dubna', 'Kostroma'));
 */
+ 
+$url =new UrlAdress("https://yandex.ru?myParam=23&address=Почтовая 24");
+
 /*
-$coll =new CollectionsPlay();
-$coll->mainProgramm();
-*/
-/*
-$truncater = new Truncater();
-print_r($truncater->truncate('one two', ['length' => 6]));
-echo "\n";
-print_r($truncater->truncate('one two', ['separator' => '.']));
+print_r($url->getScheme());
 echo "\n";
 
-$truncater2 = new Truncater(['separator'=>'!']);
-print_r($truncater2->truncate('one two',['length'=>4]));
-echo "\n";
-print_r($truncater2->truncate('one two'));
 
+print_r($url->getHostName());
+echo "\n";
+print_r($url->getQueryParams());
+echo "\n";
+print_r($url->getQueryParam('myParame','def'));
+echo "\n";
 */
 
 
-if(compare('#c', 'c')) { echo "YES\n";} else {echo "NO\n";}
+
+$http = 'https://google.com:80?a=b&c=d&lala=value';
+$url = new UrlAdress($http);
+
+//echo str_replace('80', '443', $http) . "\n";
+
+if ($url->equals(new UrlAdress(str_replace('80', '443', $http))))
+{
+    echo "TRUE";
+} else Echo "FALSE";
+//$url->equals(new Url('http://yandex.ru:80?key=value')); // false
+
+
+
+
+
+
 
 
 

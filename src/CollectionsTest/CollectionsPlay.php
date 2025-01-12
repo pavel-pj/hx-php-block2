@@ -3,11 +3,13 @@
 namespace Testeru\News2\CollectionsTest;
 
 use Illuminate\Support\Collection;
+use Illuminate\Support\LazyCollection;
 use Exception;
 
 class CollectionsPlay
 {
     protected Collection $data ;
+    protected Collection $data2 ;
 
     public function __construct()
     {
@@ -21,22 +23,30 @@ class CollectionsPlay
             ['name' => 'Tisha', 'gender' => 'female', 'birthday' => '2012-11-03'],
             ['name' => 'Rick', 'gender' => 'male', 'birthday' => '2012-11-03'],
             ['name' => 'Joffrey', 'gender' => 'male', 'birthday' => '1999-11-03'],
-            ['name' => 'Edd', 'gender' => 'male', 'birthday' => '1973-11-03']
+            ['name' => 'Edd', 'gender' => 'male',['mother'=>'BABA'] ,'birthday' => '1973-11-03']
             ]);
+
+        $this->data2 = collect([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
     }
 
     public function mainProgramm()
     {
-        try {
-            print_r($this->checkFirstOrFail($this->data));
-        }catch (Exception $error)
-        {
-            print_r([$error->getMessage(),'Несуществующая запись']);
-        }
-
+          //$chunks = $this->data2->chunk(2);
+          print_r($this->mapSpread2()->all() );
 
 
     }
+
+    public function mapSpread2(){
+
+        $result = $this->data->chunk(3)->mapSpread(function ($item1,$item2 ){
+            return  $item1['name'].' ; '.$item2['name']   ;
+        });
+        return $result;
+
+    }
+
+
     public function getMap(Collection $col): Collection
     {
          $col2 = $col->map(function (array $item) {
