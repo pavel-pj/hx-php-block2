@@ -25,6 +25,8 @@ use function Testeru\News2\Oop\Stack\compare;
 use Testeru\News2\Oop\UrlAdress;
 use Testeru\News2\Oop\DeckOfCards;
 use function Testeru\News2\Oop\normalizer;
+use Carbon\Carbon;
+use  Testeru\News2\Oop\Booking;
 
 
 $tree = [
@@ -177,10 +179,18 @@ $raw = [
         'country' => '  ruSsiA'
     ],
 ];
+/*
+$booking = new Booking();
+if ($booking->book('11-11-2008', '13-11-2008')) {echo "TRUE\n";} else {echo "FALSE\n";}
+*/
+$booking = new Booking();
+$booking->book('10-11-2008', '05-11-2008'); // false
+$booking->book('11-11-2008', '13-11-2008'); // true
+$booking->book('10-11-2008', '11-11-2008'); // true
+$booking->book('13-11-2008', '14-11-2008'); // false
+$booking->book('08-11-2008', '18-11-2008'); // false
 
-print_r(normalizer($raw));
-
-
+ECHO "SEFSEFEF";
 
 
 
