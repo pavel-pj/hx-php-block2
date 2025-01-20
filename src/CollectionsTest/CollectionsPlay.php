@@ -10,6 +10,7 @@ class CollectionsPlay
 {
     protected Collection $data ;
     protected Collection $data2 ;
+    protected Collection $data3 ;
 
     public function __construct()
     {
@@ -26,14 +27,37 @@ class CollectionsPlay
             ['name' => 'Edd', 'gender' => 'male',['mother'=>'BABA'] ,'birthday' => '1973-11-03']
             ]);
 
-        $this->data2 = collect([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
+
+        $this->data2 = collect( [  6=>'424', 'an'=>"555"  ]);
+
+        $this->data3= collect([
+            3 => '555',
+            'an' => "fff"
+            ]);
+
+
     }
 
     public function mainProgramm()
     {
-          //$chunks = $this->data2->chunk(2);
-          print_r($this->mapSpread2()->all() );
+       return $this->mergeInion();
+    }
 
+    public function mergeInion(){
+
+        return   $this->data2->merge($this->data3);
+
+    }
+
+    public function reduceReport()
+    {
+
+        $result = $this->data->reduce(function ($acc,$item){
+            $acc[$item['gender']][] = $item['name'];
+            return $acc;
+        },
+        []);
+        return $result;
 
     }
 

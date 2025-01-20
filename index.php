@@ -3,7 +3,8 @@
 $autoloadPath = __DIR__ . '/vendor/autoload.php';
 require_once $autoloadPath;
 
-use function Testeru\News2\Tree\mkdir;
+/*e function Testeru\News2\Tree\mkdir;
+
 use function Testeru\News2\Tree\mkfile;
 use function Testeru\News2\Tree\getName;
 use function Testeru\News2\Tree\isFile;
@@ -26,8 +27,8 @@ use Testeru\News2\Oop\UrlAdress;
 use Testeru\News2\Oop\DeckOfCards;
 use function Testeru\News2\Oop\normalizer;
 use Carbon\Carbon;
-use  Testeru\News2\Oop\Booking;
-
+ */
+use Testeru\News2\CollectionsTest\CollectionsPlay;
 
 $tree = [
     'name' => 'html',
@@ -179,18 +180,10 @@ $raw = [
         'country' => '  ruSsiA'
     ],
 ];
-/*
-$booking = new Booking();
-if ($booking->book('11-11-2008', '13-11-2008')) {echo "TRUE\n";} else {echo "FALSE\n";}
-*/
-$booking = new Booking();
-$booking->book('10-11-2008', '05-11-2008'); // false
-$booking->book('11-11-2008', '13-11-2008'); // true
-$booking->book('10-11-2008', '11-11-2008'); // true
-$booking->book('13-11-2008', '14-11-2008'); // false
-$booking->book('08-11-2008', '18-11-2008'); // false
 
-ECHO "SEFSEFEF";
+$coll = new CollectionsPlay();
+print_r($coll->mainProgramm());
+
 
 
 
