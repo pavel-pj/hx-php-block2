@@ -29,6 +29,7 @@ use function Testeru\News2\Oop\normalizer;
 use Carbon\Carbon;
  */
 use Testeru\News2\CollectionsTest\CollectionsPlay;
+use Testeru\News2\Carbon\CarbonDate;
 
 $tree = [
     'name' => 'html',
@@ -181,8 +182,11 @@ $raw = [
     ],
 ];
 
-$coll = new CollectionsPlay();
-print_r($coll->mainProgramm());
+//$coll = new CollectionsPlay();
+//print_r($coll->mainProgramm());
+
+$date = new CarbonDate();
+print_r($date->getWeekends());
 
 
 
