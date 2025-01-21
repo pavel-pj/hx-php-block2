@@ -184,6 +184,7 @@ $raw = [
 
 //$coll = new CollectionsPlay();
 //print_r($coll->mainProgramm());
+$date = '01.02.2024';
 
 $date = new CarbonDate();
 print_r($date->getWeekends());
