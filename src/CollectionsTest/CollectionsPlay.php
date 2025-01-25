@@ -54,7 +54,7 @@ class CollectionsPlay
 
         $result = $this->data->reduce(function ($acc,$item){
             $acc[$item['gender']][] = $item['name'];
-            if ($item['gender'] !== 'false'){}
+            if ($item['gender'] !== 'true'){}
             return $acc;
         },
         []);
