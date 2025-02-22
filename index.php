@@ -27,167 +27,52 @@ use Testeru\News2\Oop\UrlAdress;
 use Testeru\News2\Oop\DeckOfCards;
 use function Testeru\News2\Oop\normalizer;
 use Carbon\Carbon;
+use function Testeru\News2\Tree\convert;
  */
 use Testeru\News2\CollectionsTest\CollectionsPlay;
 use Testeru\News2\Carbon\CarbonDate;
+use function Testeru\News2\Tree\sortDeps;
+use function Testeru\News2\Tree\mkdir;
+use function Testeru\News2\Tree\mkfile;
+use function Testeru\News2\Tree\isFile;
+use function Testeru\News2\Tree\getChildren;
+use function Testeru\News2\Tree\testFunc;
+use function Testeru\News2\Tree\Rep\stringify;
 
-$tree = [
-    'name' => 'html',
-    'type' => 'tag-internal',
-
-    'children' => [
-        [
-            'name' => 'body',
-            'type' => 'tag-internal',
-
-            'className' =>'hexlet',
-            'children' => [
-                [
-                    'name' => 'h1',
-                    'type' => 'tag-internal',
-                    'className' =>'hexlet',
-                    'children' => [
-                        [
-                            'name' => '',
-                            'type' => 'text',
-                            'content' => 'Сообщество',
-                        ],
-                    ],
-                ],
-                [
-                    'name' => 'p',
-                    'type' => 'tag-internal',
-                    'children' => [
-                        [
-                            'type' => 'text',
-                            'content' => 'Общение между пользователями Хекслета',
-                        ],
-                    ],
-                ],
-                [
-                    'name' => 'hr',
-                    'type' => 'tag-leaf',
-                ],
-                [
-                    'name' => 'input',
-                    'type' => 'tag-leaf',
-                ],
-                [
-                    'name' => 'div',
-                    'type' => 'tag-internal',
-                    'className' => 'hexlet',
-                    'children' => [
-                        [
-                            'name' => 'div',
-                            'type' => 'tag-internal',
-                            'className' => 'text-xs-center',
-                            'children' => [],
-                        ],
-                        [
-                            'name' => 'div',
-                            'type' => 'tag-internal',
-                            'className' => 'fa fa-spinner',
-                            'children' => [],
-                        ],
-                    ],
-                ],
-            ],
-        ],
-    ],
+$data = [
+    'hello' => 'world',
+    'is' => true,
+    'nested' => ['count' => 5],
 ];
-//
-$tree1 = [
-    'name' => 'div',
-    'type' => 'tag-internal',
-    'className' => 'hexlet-community',
-    'children' => [
-        [
-            'name' => 'div',
-            'type' => 'tag-internal',
-            'className' => 'old-class',
-            'children' => [],
-        ],
-        [
-            'name' => 'div',
-            'type' => 'tag-internal',
-            'className' => 'old-class',
-            'children' => [],
-        ],
-    ],
+echo "\n\n";
+$data2 =900;
+
+$data3 = [
+    'string' => 'value',
+    'boolean' => true,
+    'number' => 5,
+    'float' => 1.25,
+    'object' => [
+        5 => 'number',
+        '1.25' => 'float',
+        'null' => 'null',
+        'true' => 'boolean',
+        'value' => 'string',
+        'nested' => [
+            'boolean' => true,
+            'float' => 1.25,
+            'string' => 'value',
+            'number' => 5,
+            'null' => 'null'
+        ]
+    ]
 ];
 
-$tree3 = [ ['key2', 'value2']];
 
-$tree4 = [
-    ['key2', 'value2'],
-    ['anotherKey', [
-        ['key2', false],
-        ['innerKey', []],
-    ]],
-    ['key', null],
-    ['anotherKey2', [
-        ['wow', [['one', 'two'], ['three', 'four']]],
-        ['key2', true],
-    ]],
-];
-
-$tree5 = [['key1', 'value1'], ['key2', 'value2']];
-$tree6 = [['key', 'value']];
-
-$list = [[1, [5], [], [[-3, 'hi']]], 'string', 10, [[[5]]]];
+echo (stringify($data3,'|-',2));
+echo "\n\n";
 
 
-$tree = ['Moscow', [
-    ['Smolensk'],
-    ['Yaroslavl'],
-    ['Voronezh', [
-        ['Liski'],
-        ['Boguchar'],
-        ['Kursk', [
-            ['Belgorod', [
-                ['Borisovka'],
-            ]],
-            ['Kurchatov'],
-        ]],
-    ]],
-    ['Ivanovo', [
-        ['Kostroma'], ['Kineshma'],
-    ]],
-    ['Vladimir'],
-    ['Tver', [
-        ['Klin'], ['Dubna'], ['Rzhev'],
-    ]],
-]];
-
-$raw = [
-    [
-        'name' => 'istambul',
-        'country' => 'turkey'
-    ],
-    [
-        'name' => 'Moscow ',
-        'country' => ' Russia'
-    ],
-    [
-        'name' => 'iStambul',
-        'country' => 'tUrkey'
-    ],
-    [
-        'name' => 'antalia',
-        'country' => 'turkeY '
-    ],
-    [
-        'name' => 'samarA',
-        'country' => '  ruSsiA'
-    ],
-];
-
-//$coll = new CollectionsPlay();
-//print_r($coll->mainProgramm());
-$date = '01.02.2024';
-
-$date = new CarbonDate();
-print_r($date->getWeekends());
 
 
 

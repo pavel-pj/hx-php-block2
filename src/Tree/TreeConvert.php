@@ -2,8 +2,9 @@
 
 namespace Testeru\News2\Tree;
 
-function convert(array $arr)
+function bando( )
 {
+    /*
     $result = array_map(function ($item){
         if (is_array($item[1])) {
                $value = convert($item[1]);
@@ -15,6 +16,7 @@ function convert(array $arr)
         }, $arr);
 
     return array_merge(...$result);
-
+*/
+    echo "HE:EEE";
 
 }
