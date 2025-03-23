@@ -13,38 +13,51 @@ $conn->exec($sql);
 $sql = "CREATE TABLE products (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, price INTEGER)";
 $conn->exec($sql);
 
+try {
 
-// Вставляем данные в таблицу users
-$sql2 = "INSERT INTO users (username, phone) VALUES (?, ?)";
-$stmt  = $conn->prepare($sql2);
+    $conn->beginTransaction();
 
-$stmt->bindParam(1, $name);
-$stmt->bindParam(2, $phone);
+    // Вставляем данные в таблицу users
+    $sql2 = "INSERT INTO users (username, phone) VALUES (?, ?)";
+    $stmt = $conn->prepare($sql2);
 
-$name = "Валера";
-$phone = '+8930400-34-24';
-$stmt->execute();
+    $stmt->bindParam(1, $name);
+    $stmt->bindParam(2, $phone);
 
-
-$name = "Иван Иваныч Заорский";
-$phone = '+8912-303-22-33';
-$stmt->execute();
+    $name = "Валера";
+    $phone = '+8930400-34-24';
+    $stmt->execute();
 
 
-// Вставляем данные в таблицу products
-$sql2 = "INSERT INTO products (name,price) VALUES (?, ?)";
-$stmt  = $conn->prepare($sql2);
-$stmt->bindParam(1,$name);
-$stmt->bindParam(2,$price);
+    $name = "Иван Иваныч Заорский";
+    $phone = '+8912-303-22-33';
+    $stmt->execute();
 
-$name = 'Утюг';
-$price = 3500;
-$stmt->execute();
 
-$name = 'Айфон';
-$price = 100000;
-$stmt->execute();
+    // Вставляем данные в таблицу products
+    $sql2 = "INSERT INTO products (name,price) VALUES (?, ?)";
+    $stmt = $conn->prepare($sql2);
+    $stmt->bindParam(1, $name);
+    $stmt->bindParam(2, $price);
 
+    $name = 'Утюг';
+    $price = ['yyy44'];
+    $stmt->execute();
+
+    throw new Exception("Ошибка во время транзакции");
+
+
+    $name = 'Айфон';
+    $price = 100000;
+    $stmt->execute();
+
+    $conn->commit();
+} catch (Exception $e) {
+    $conn->rollBack();
+
+    echo "Ошибка : " .$e->getMessage();
+    
+}
 
 /*
 // Выбираем данные из таблицы users
@@ -52,12 +65,14 @@ $sql3 = "SELECT * FROM products where id = ?";
 $stmt = $conn->prepare($sql3);
 $stmt->bindParam(1, $id);
 $id = 2;
-*/
-
-
-
 $stmt->execute();
 $result = $stmt->fetchAll();
+*/
+
+$sql5 = "SELECT * FROM products";
+$stmt = $conn->query($sql5);
+$result = $stmt->fetchAll();
+
 
 // Выводим результаты запроса
 print_r($result);
