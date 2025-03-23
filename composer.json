@@ -28,7 +28,9 @@
             "src/Tree/TreeConvert.php",
             "src/Tree/les3-repeat.php",
             "src/Tree/Rep/Agregate.php",
-            "src/Tree/Rep/json.php"
+            "src/Tree/Rep/json.php",
+            "src/Tree/Map.php",
+            "src/PDO/lite.php"
 
 
         ]

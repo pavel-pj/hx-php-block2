@@ -8,5 +8,7 @@ lint:
 	composer exec --verbose phpcs -- --standard=PSR12 src
 index:
 	/opt/php83/bin/php index.php
+pdo:
+	/opt/php83/bin/php src/PDO/lite.php
+	
 
- 
